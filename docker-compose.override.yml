@@ -1,0 +1,55 @@
+services:
+    application:
+        depends_on:
+            bitgo:
+                condition: service_started
+            ethereum-api:
+                condition: service_healthy
+            binance-api:
+                condition: service_healthy
+
+    bitgo:
+        image: bitgosdk/express:latest
+        restart: unless-stopped
+        environment:
+            BITGO_ENV: '${BITGO_ENV:-test}'
+            BITGO_PORT: '${BITGO_PORT:-4000}'
+            BITGO_DISABLE_SSL: 1
+        networks:
+            - neoscrypts
+
+    ethereum-api:
+        image: neoscrypts/ethereum-api:london
+        restart: unless-stopped
+        environment:
+            HOST_UID: '${HOST_UID:-1000}'
+            ETHEREUM_MONGODB_URL: '${MONGODB_URL:-mongodb://$DB_USERNAME:$DB_PASSWORD@mongo:27017/?authSource=admin}'
+            ETHEREUM_MONGODB_NAME: 'ethereum-api'
+            ETHEREUM_WS: '${ETHEREUM_WS}'
+        volumes:
+            -   type: bind
+                source: './storage/ethereum'
+                target: '/home/node/storage'
+        networks:
+            - neoscrypts
+        healthcheck:
+            test: [ "CMD-SHELL", "curl --fail http://localhost:7000/ping || exit 1" ]
+            start_period: 2m
+
+    binance-api:
+        image: neoscrypts/ethereum-api:london
+        restart: unless-stopped
+        environment:
+            HOST_UID: '${HOST_UID:-1000}'
+            ETHEREUM_MONGODB_URL: '${MONGODB_URL:-mongodb://$DB_USERNAME:$DB_PASSWORD@mongo:27017/?authSource=admin}'
+            ETHEREUM_MONGODB_NAME: 'binance-api'
+            ETHEREUM_WS: '${BINANCE_WS}'
+        volumes:
+            -   type: bind
+                source: './storage/binance'
+                target: '/home/node/storage'
+        networks:
+            - neoscrypts
+        healthcheck:
+            test: [ "CMD-SHELL", "curl --fail http://localhost:7000/ping || exit 1" ]
+            start_period: 2m

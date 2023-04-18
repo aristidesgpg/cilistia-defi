@@ -1,0 +1,33 @@
+<component name="ProjectCodeStyleConfiguration">
+  <code_scheme name="Project" version="173">
+    <option name="LINE_SEPARATOR" value="&#10;" />
+    <option name="SOFT_MARGINS" value="80" />
+    <PHPCodeStyleSettings>
+      <option name="PHPDOC_BLANK_LINE_BEFORE_TAGS" value="true" />
+      <option name="PHPDOC_PARAM_SPACES_BETWEEN_TAG_AND_TYPE" value="2" />
+      <option name="PHPDOC_PARAM_SPACES_BETWEEN_TYPE_AND_NAME" value="2" />
+      <option name="PHPDOC_PARAM_SPACES_BETWEEN_NAME_AND_DESCRIPTION" value="2" />
+      <option name="ANONYMOUS_BRACE_STYLE" value="2" />
+    </PHPCodeStyleSettings>
+    <codeStyleSettings language="JSON">
+      <indentOptions>
+        <option name="INDENT_SIZE" value="4" />
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="PHP">
+      <option name="SPACE_AFTER_TYPE_CAST" value="true" />
+    </codeStyleSettings>
+    <codeStyleSettings language="Shell Script">
+      <indentOptions>
+        <option name="INDENT_SIZE" value="4" />
+        <option name="TAB_SIZE" value="4" />
+        <option name="USE_TAB_CHARACTER" value="true" />
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="yaml">
+      <indentOptions>
+        <option name="INDENT_SIZE" value="4" />
+      </indentOptions>
+    </codeStyleSettings>
+  </code_scheme>
+</component>

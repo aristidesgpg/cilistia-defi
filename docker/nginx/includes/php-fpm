@@ -1,0 +1,38 @@
+root /var/www/html/public;
+
+add_header X-Frame-Options "SAMEORIGIN";
+add_header X-Content-Type-Options "nosniff";
+add_header Referrer-Policy "strict-origin";
+
+index index.php;
+
+charset utf-8;
+
+location / {
+    try_files $uri $uri/ /index.php?$query_string;
+}
+
+location = /favicon.ico { access_log off; log_not_found off; }
+location = /logo.png { access_log off; log_not_found off; }
+location = /robots.txt  { access_log off; log_not_found off; }
+
+error_page 404 /index.php;
+
+location ~ \.php$ {
+    fastcgi_pass application:9000;
+    fastcgi_param   SCRIPT_FILENAME     $realpath_root$fastcgi_script_name;
+    include fastcgi_params;
+
+    # This server is expected to be under a reverse nginx-proxy from another container
+    # and should never be exposed directly through direct container port binding.
+    # We will override this nginx properties with the proxy's own using headers.
+    # If this container is exposed directly, it will use client's headers which is unsafe
+
+    fastcgi_param   REQUEST_SCHEME      $proxy_scheme;
+    fastcgi_param   HTTPS               $proxy_https if_not_empty;
+    fastcgi_param   REMOTE_PORT         $http_remote_port;
+}
+
+location ~ /\.(?!well-known).* {
+    deny all;
+}

@@ -1,0 +1,21 @@
+@import "vendor/vendor";
+@import "transitions";
+
+.react-grid-item > .react-resizable-handle {
+  padding: 0 4px 4px 0;
+  background-image: url('../static/resize-handle-light.svg');
+  background-size: cover;
+  z-index: 9;
+
+  &::after {
+    border: none;
+  }
+}
+
+.react-grid-item.dark > .react-resizable-handle {
+  background-image: url('../static/resize-handle-dark.svg');
+}
+
+.recharts-tooltip-wrapper:focus-visible {
+  outline: none;
+}
