@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('email')->unique();
+            $table->string('wallet');
             $table->string('phone')->unique()->nullable();
             $table->dateTime('deactivated_until')->nullable();
             $table->string('password');

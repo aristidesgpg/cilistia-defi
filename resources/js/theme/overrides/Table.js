@@ -57,7 +57,7 @@ export default function Table(theme) {
                 },
                 select: {
                     "&:focus": {
-                        borderRadius: theme.shape.borderRadius
+                        borderRadius: 5
                     }
                 },
                 selectIcon: {

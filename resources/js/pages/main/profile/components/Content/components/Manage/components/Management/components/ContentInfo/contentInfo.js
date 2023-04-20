@@ -28,7 +28,7 @@ const IconWrapper = styled(Box)(({theme}) => ({
     alignItems: "center",
     backgroundColor: theme.palette.background.neutral,
     color: theme.palette.text.secondary,
-    borderRadius: theme.shape.borderRadius * 1.5,
+    borderRadius: 5,
     width: 40,
     height: 40
 }));

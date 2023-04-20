@@ -1,16 +1,13 @@
 {
-  "printWidth": 100,
-  "trailingComma": "es5",
-  "tabWidth": 2,
-  "semi": false,
+  "semi": true,
   "singleQuote": true,
-  "bracketSpacing": false,
-  "jsxBracketSameLine": false,
-  "arrowParens": "always",
-  "endOfLine": "auto",
-  "jsxSingleQuote": true,
-  "proseWrap": "preserve",
-  "quoteProps": "as-needed",
+  "printWidth": 120,
+  "tabWidth": 2,
   "useTabs": false,
-  "htmlWhitespaceSensitivity": "css"
+  "jsxBracketSameLine": true,
+  "trailingComma": "none",
+  "importOrder": ["^@core/(.*)$", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "bracketSameLine": true
 }

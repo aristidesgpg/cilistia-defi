@@ -57,7 +57,7 @@ use Spatie\Csp\AddCspHeaders;
 Route::prefix('web')->group(function () {
     Route::prefix('auth')->name('auth.')->group(function () {
         Route::post('login', [LoginController::class, 'login'])->name('login');
-        // Route::post('register', [RegisterController::class, 'register'])->name('register')->block();
+        Route::post('register', [RegisterController::class, 'register'])->name('register')->block();
         Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
         Route::prefix('reset-password')->name('reset-password.')->group(function () {

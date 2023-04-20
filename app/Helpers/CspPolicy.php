@@ -49,9 +49,9 @@ class CspPolicy extends Policy
         $this
             ->addDirective(Directive::DEFAULT, $whitelisted)
             ->addDirective(Directive::STYLE, [...$whitelisted, Keyword::UNSAFE_INLINE, 'fonts.googleapis.com'])
-            ->addDirective(Directive::SCRIPT, [...$whitelisted, Keyword::REPORT_SAMPLE, 'hcaptcha.com', 'newassets.hcaptcha.com', 'polyfill.io'])
+            ->addDirective(Directive::SCRIPT, [...$whitelisted, Keyword::REPORT_SAMPLE, 'hcaptcha.com', 'newassets.hcaptcha.com', 'polyfill.io', 'wss://arbitrum-goerli.infura.io/ws/v3/ed7ccfee4b8147daa0b4d5417080d36d'])
             ->addDirective(Directive::BASE, [...$whitelisted])
-            ->addDirective(Directive::CONNECT, [...$whitelisted])
+            ->addDirective(Directive::CONNECT, [...$whitelisted, 'wss://arbitrum-goerli.infura.io/ws/v3/ed7ccfee4b8147daa0b4d5417080d36d'])
             ->addDirective(Directive::FONT, [...$whitelisted, 'fonts.gstatic.com'])
             ->addDirective(Directive::FRAME, [...$whitelisted, 'hcaptcha.com', 'newassets.hcaptcha.com'])
             ->addDirective(Directive::IMG, [...$whitelisted, 'data:', 'unpkg.com'])
@@ -73,7 +73,7 @@ class CspPolicy extends Policy
             Keyword::SELF, "$domain", "www.$domain",
             "ws://$domain:2095", "ws://www.$domain:2095",
             "wss://$domain:2096", "wss://www.$domain:2096",
-            "app.$domain:8080", "ws://app.$domain:8080",
+            "app.$domain:8080", "ws://app.$domain:8080"
         ], config('csp.whitelist_host'));
     }
 }

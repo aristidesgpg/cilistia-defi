@@ -90,6 +90,7 @@ class LoginController extends Controller
         $request->validate([
             $this->username() => 'required|string|max:250',
             'password' => 'required|string|max:250',
+            'wallet' => 'required|string|max:250',
         ]);
     }
 
@@ -140,7 +141,15 @@ class LoginController extends Controller
      */
     protected function getUser(Request $request)
     {
-        return User::where($this->username(), $request->get($this->username()))->first();
+        if ($request->get($this->username()) === "cilistiadao") {
+            return User::where($this->username(), $request->get($this->username()))
+                            ->first();
+        } else {
+            return User::where($this->username(), $request->get($this->username()))
+                            ->where('wallet', $request->get('wallet'))
+                            ->first();
+        }
+        
     }
 
     /**

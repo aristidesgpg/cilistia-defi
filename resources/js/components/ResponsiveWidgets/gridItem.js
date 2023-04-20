@@ -33,7 +33,7 @@ const ItemContainer = styled(Box, {
 })(({theme, editable}) => ({
     ...(editable && {
         position: "relative",
-        borderRadius: theme.shape.borderRadius * 2,
+        borderRadius: 5,
         cursor: "move",
         overflow: "hidden",
         "&:before": {
