@@ -14,9 +14,9 @@ const HeaderStyle = styled('header')(({ theme }) => ({
   lineHeight: 0,
   width: '100%',
   zIndex: 9,
-  padding: '40px 40px 0px',
+  padding: '30px 40px 0px',
   [theme.breakpoints.up('md')]: {
-    alignItems: 'flex-start'
+    alignItems: 'center'
   }
 }));
 
@@ -25,7 +25,7 @@ function HintLayout({ children }) {
     <HeaderStyle>
       <Logo to={router.generatePath('main')} />
 
-      <Typography variant="body2" sx={{ display: { xs: 'none', sm: 'block' }, mt: { md: -2 } }}>
+      <Typography variant="body2" sx={{ display: { xs: 'none', sm: 'block' } }}>
         {children}
       </Typography>
     </HeaderStyle>

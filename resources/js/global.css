@@ -13,8 +13,9 @@
 .MuiSelect-select:-webkit-autofill {
   box-shadow: rgb(22 28 36) 0px 0px 0px 100px inset;
 }
-.filter .MuiFormLabel-root {
-  width: calc(100% - 33px);
-  text-align: center;
+.vertical-center .MuiFormLabel-root {
   margin-top: -6px;
+}
+.vertical-center .MuiFormLabel-root.Mui-focused {
+  margin-top: 0;
 }

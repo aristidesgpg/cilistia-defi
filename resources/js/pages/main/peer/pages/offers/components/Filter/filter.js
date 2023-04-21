@@ -33,7 +33,7 @@ const Filter = ({ apply }) => {
         <CardHeader title={<FormattedMessage defaultMessage="Filter Offers" />} />
 
         <CardContent>
-          <Stack spacing={3} className="filter">
+          <Stack spacing={3} className="vertical-center">
             <WalletField />
             <PaymentSelect />
             <PaymentField />

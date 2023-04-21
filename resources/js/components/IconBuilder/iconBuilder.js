@@ -15,7 +15,7 @@ const IconBuilder = ({ icon: svgIcon, sx: iconStyle, ...otherProps }) => {
         flexShrink: 0,
         ...iconStyle
       }}>
-      <Box component="img" sx={{ width: '1em', height: '1em' }} src={svgIcon} />
+      <Box component="img" sx={{ width: '0.8em', height: '0.8em' }} src={svgIcon} />
     </Box>
   );
 };
